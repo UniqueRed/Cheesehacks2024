@@ -1,0 +1,49 @@
+import React, { useState } from "react";
+
+const FlashcardApp = ({question, answer}) => {
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [showAnswer, setShowAnswer] = useState(false);
+
+  const goToNextCard = () => {
+    setShowAnswer(false);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % flashcards.length);
+  };
+
+  const goToPreviousCard = () => {
+    setShowAnswer(false);
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + flashcards.length) % flashcards.length
+    );
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "ArrowRight") {
+      goToNextCard();
+    } else if (e.key === "ArrowLeft") {
+      goToPreviousCard();
+    }
+  };
+
+  React.useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  return (
+    <div className="flashcard-app">
+      <div
+        className="flashcard"
+        onClick={() => setShowAnswer(!showAnswer)}
+      >
+        <p>{!showAnswer ? question : answer}</p>
+      </div>
+      <div className="navigation-buttons">
+        <button onClick={goToPreviousCard}>&larr; Previous</button>
+        <button onClick={goToNextCard}>Next &rarr;</button>
+      </div>
+    </div>
+  );
+};
+
+export default FlashcardApp;
