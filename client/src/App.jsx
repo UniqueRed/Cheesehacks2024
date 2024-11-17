@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import FileUpload from "./components/FileUpload";
 import Flashcard from "./components/Flashcard";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [flashcards, setFlashcards] = useState([]);
@@ -72,6 +73,7 @@ const App = () => {
           )}
         </div>
       </main>
+      <Footer></Footer>
     </>
   );
 };
