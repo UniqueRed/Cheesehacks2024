@@ -37,7 +37,7 @@ const FileUpload = ({ onUploadComplete }) => {
     <>
       <div id="uploadHolder">
         <form>
-          <label id="buttons" htmlFor="fileUpload">Choose a PDF</label>
+          <label className="buttons" htmlFor="fileUpload">Choose a PDF</label>
           <input
             id="fileUpload"
             type="file"
@@ -46,7 +46,7 @@ const FileUpload = ({ onUploadComplete }) => {
           />
         </form>
         {document.getElementById("fileUpload") !== null ? <p>Selected File: {document.getElementById("fileUpload").files[0].name}</p> : <p></p>}
-        <button id="buttons" type="submit" onClick={handleSubmit}>Upload PDF</button>
+        <button className="buttons" type="submit" onClick={handleSubmit}>Upload PDF</button>
         <div id="loader" className="loader hidden"></div>
       </div>
     </>

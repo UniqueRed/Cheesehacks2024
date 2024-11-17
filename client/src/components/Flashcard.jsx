@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-const Flashcard = ({ question, answer, flipState }) => {
-  const [showAnswer, setShowAnswer] = useState(flipState);
+const Flashcard = ({ question, answer }) => {
+  const [showAnswer, setShowAnswer] = useState(false);
 
   const handleKeyDown = (e) => {
     if (e.key === "ArrowUp") {
@@ -13,9 +13,10 @@ const Flashcard = ({ question, answer, flipState }) => {
     }
   };
 
-  useEffect(() => {
-    setShowAnswer(flipState);
-  }, [flipState]);
+  React.useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   const handleClick = () => {
     setShowAnswer(!showAnswer);

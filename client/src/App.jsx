@@ -14,16 +14,10 @@ const App = () => {
   };
 
   const goToNextCard = () => {
-    const newFlashcards = [...flashcards];
-    newFlashcards[currentIndex].flipState = startWithTerm;
-    setFlashcards(newFlashcards);
     setCurrentIndex((prevIndex) => (prevIndex + 1) % flashcards.length);
   };
 
   const goToPreviousCard = () => {
-    const newFlashcards = [...flashcards];
-    newFlashcards[currentIndex].flipState = startWithTerm;
-    setFlashcards(newFlashcards);
     setCurrentIndex((prevIndex) => (prevIndex - 1 + flashcards.length) % flashcards.length);
   };
 
@@ -57,15 +51,15 @@ const App = () => {
           ) : (
             <>
               <Flashcard
+                key={currentIndex}
                 question={flashcards[currentIndex].question}
                 answer={flashcards[currentIndex].answer}
-                flipState={startWithTerm}
               />
               <p>{currentIndex + 1}/{flashcards.length}</p>
               
               <div className="navigation-buttons">
-                <button id="buttons" onClick={goToPreviousCard}>&larr; Previous</button>
-                <button id="buttons" onClick={goToNextCard}>Next &rarr;</button>
+                <button id="cycleButtons" className="buttons" onClick={goToPreviousCard}>&larr; Previous</button>
+                <button id="cycleButtons" className="buttons" onClick={goToNextCard}>Next &rarr;</button>
               </div>
 
               {/* <button onClick={toggleStartWithTerm}>
