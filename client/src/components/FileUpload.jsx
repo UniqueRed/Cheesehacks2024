@@ -45,6 +45,7 @@ const FileUpload = ({ onUploadComplete }) => {
             onChange={handleFileChange}
           />
         </form>
+        {document.getElementById("fileUpload") !== null ? <p>Selected File: {document.getElementById("fileUpload").files[0].name}</p> : <p></p>}
         <button id="buttons" type="submit" onClick={handleSubmit}>Upload PDF</button>
         <div id="loader" className="loader hidden"></div>
       </div>

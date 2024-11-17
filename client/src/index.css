@@ -156,7 +156,7 @@ input[type="file"] {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 20px;
+    gap: 5px;
   }
 
   .hidden {
@@ -170,6 +170,7 @@ input[type="file"] {
     border: 5px solid #dddddd;
     border-right-color: #3A9AF9;
     animation: l2 1s infinite linear;
+    margin-top: 10px;
   }
   @keyframes l2 {to{transform: rotate(1turn)}}
 
