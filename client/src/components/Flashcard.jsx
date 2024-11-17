@@ -5,10 +5,13 @@ const Flashcard = ({ question, answer }) => {
 
   const handleKeyDown = (e) => {
     if (e.key === "ArrowUp") {
+      e.preventDefault();
       setShowAnswer((prevState) => !prevState);
     } else if (e.key === "ArrowDown") {
+      e.preventDefault();
         setShowAnswer((prevState) => !prevState);
-    } else if (e.key === "Space") {
+    } else if (e.key === " ") {
+      e.preventDefault();
         setShowAnswer((prevState) => !prevState);
     }
   };
